@@ -55,11 +55,21 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+  //返回函数组件
+  List<Widget> _getChildren() {
+    return [Text("首页"), Text("分类"), Text("购物车"), Text("我的")]; //测试写死的
+    // return [HomeView(), CategoryView(), CartView(), MineView()];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("主页")),
-      body: Center(child: Text("主页")),
+
+      body: IndexedStack(
+        index: _currentIndex, //索引变量
+        children: _getChildren(), // 放置几个组件
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.red, //设置底部导航栏点击颜色
         unselectedItemColor: Colors.black, //设置底部导航栏默认颜色
