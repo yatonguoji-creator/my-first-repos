@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/Cart/Index.dart';
+import 'package:flutter_application_1/pages/Categary/Index.dart';
+import 'package:flutter_application_1/pages/Home/Index.dart';
+import 'package:flutter_application_1/pages/Mine/Index.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key? key}) : super(key: key);
@@ -57,8 +61,8 @@ class _MainPageState extends State<MainPage> {
 
   //返回函数组件
   List<Widget> _getChildren() {
-    return [Text("首页"), Text("分类"), Text("购物车"), Text("我的")]; //测试写死的
-    // return [HomeView(), CategoryView(), CartView(), MineView()];
+    // return [Text("首页"), Text("分类"), Text("购物车"), Text("我的")]; //测试写死的
+    return [HomeView(), CategoryView(), CartView(), MineView()];
   }
 
   @override
