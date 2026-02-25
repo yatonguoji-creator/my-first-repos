@@ -1,3 +1,5 @@
+//购物车页面代码
+
 import 'package:flutter/material.dart';
 
 class CartView extends StatefulWidget {
