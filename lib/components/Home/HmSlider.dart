@@ -1,8 +1,8 @@
-//轮播图
+//轮播图框架
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/viewmodels/Home.dart';
+import 'package:flutter_application_1/viewmodels/home.dart';
 
 class HmSlider extends StatefulWidget {
   final List<BannerItem> bannerList; //轮播图列表集合
@@ -28,6 +28,7 @@ class _HmSliderState extends State<HmSlider> {
     return CarouselSlider(
       carouselController: _controller,
       items: List.generate(widget.bannerList.length, (int index) {
+        //返回网路图片获取
         return Image.network(
           widget.bannerList[index].imgUrl,
           fit: BoxFit.cover,
@@ -37,7 +38,7 @@ class _HmSliderState extends State<HmSlider> {
       options: CarouselOptions(
         viewportFraction: 1, //设置轮播图所占比例
         // autoPlayInterval: Duration(seconds: 3), //设置轮播自动播放速度
-        // autoPlay: true, //设置轮播图是否自动播放
+        autoPlay: true, //设置轮播图是否自动播放
         height: 300,
         //指示条点击更换组件，自动播放也可以切换指示条
         onPageChanged: (int index, reason) {

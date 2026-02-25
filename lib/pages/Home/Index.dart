@@ -1,12 +1,13 @@
 //主页home页面代码
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/api/home.dart';
 import 'package:flutter_application_1/components/Home/HmCategory.dart';
 import 'package:flutter_application_1/components/Home/HmHot.dart';
 import 'package:flutter_application_1/components/Home/HmMoreList.dart';
 import 'package:flutter_application_1/components/Home/HmSlider.dart';
 import 'package:flutter_application_1/components/Home/HmSuggestion.dart';
-import 'package:flutter_application_1/viewmodels/Home.dart';
+import 'package:flutter_application_1/viewmodels/home.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key? key}) : super(key: key);
@@ -18,19 +19,22 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   // 轮播图分类列表
   // List<CategoryItem> _categoryList = [];
-  final List<BannerItem> _bannerList = [
-    BannerItem(
-      id: "1",
-      imgUrl: "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/1.jpg",
-    ),
-    BannerItem(
-      id: "2",
-      imgUrl: "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/2.png",
-    ),
-    BannerItem(
-      id: "3",
-      imgUrl: "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/3.jpg",
-    ),
+  List<BannerItem> _bannerList = [
+    // BannerItem(
+    //   id: "1",
+    //   imgUrl:
+    //       "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meikou/banner/xinnian_sj.png",
+    // ),
+    // BannerItem(
+    //   id: "2",
+    //   imgUrl:
+    //       "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meikou/banner/nvshen_sj.png",
+    // ),
+    // BannerItem(
+    //   id: "3",
+    //   imgUrl:
+    //       "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meikou/banner/nuandong_sj.png",
+    // ),
   ];
 
   // 获取滚动容器的内容
@@ -67,6 +71,18 @@ class _HomeViewState extends State<HomeView> {
       SliverToBoxAdapter(child: SizedBox(height: 10)), //上下间距
       HmMoreList(), //无限商品表格列表
     ];
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getBannderList();
+  }
+
+  // 获取轮播图列表
+  void _getBannderList() async {
+    _bannerList = await getBannerListAPI();
+    setState(() {});
   }
 
   @override
