@@ -60,7 +60,7 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  //返回函数组件
+  //返回函数组件，4个页面跳转数据返回-------------*
   List<Widget> _getChildren() {
     // return [Text("首页"), Text("分类"), Text("购物车"), Text("我的")]; //测试写死的
     return [HomeView(), CategoryView(), CartView(), MineView()];
@@ -69,8 +69,9 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("主页")),
+      // appBar: AppBar(title: Text("我的app")),
 
+      //设置底部导航栏
       body: IndexedStack(
         index: _currentIndex, //索引变量
         children: _getChildren(), // 放置几个组件

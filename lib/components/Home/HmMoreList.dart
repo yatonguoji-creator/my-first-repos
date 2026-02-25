@@ -1,4 +1,4 @@
-//无限滚动页面代码
+//无限滚动商品页面代码
 
 import 'package:flutter/material.dart';
 

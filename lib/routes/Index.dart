@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/Login/Index.dart';
-import 'package:flutter_application_1/pages/Main/Index.dart';
+import 'package:flutter_application_1/pages/Main/Mainpage.dart';
 
 // 返回App根级组件
 Widget getRootWidget() {
@@ -12,7 +12,7 @@ Widget getRootWidget() {
 
 Map<String, Widget Function(BuildContext)> getRootRoutes() {
   return {
-    "/": (context) => MainPage(), // 主页路由
+    "/": (context) => MainPage(), // 底部导航栏4个页面路由
     "/login": (context) => LoginPage(), // 登录路由
   };
 }
