@@ -79,7 +79,7 @@ class _HomeViewState extends State<HomeView> {
     _getBannderList();
   }
 
-  // 获取轮播图列表
+  // 获取轮播图列表，注意final修饰词
   void _getBannderList() async {
     _bannerList = await getBannerListAPI();
     setState(() {});

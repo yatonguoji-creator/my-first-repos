@@ -1,4 +1,4 @@
-//轮播图具体图片数据代码
+//轮播图具体图片加载解析数据代码
 
 class BannerItem {
   String id;
