@@ -1,0 +1,45 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Edge",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "edge",
+            "args": [
+                "--web-port=8088",
+                "--web-hostname=127.0.0.1"
+            ]
+        },
+        {
+            "name": "Web Server",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "web-server",
+            "args": [
+                "--web-port=8088",
+                "--web-hostname=127.0.0.1"
+            ]
+        },
+        {
+            "name": "Mobile",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Profile Mode",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Release Mode",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

@@ -7,7 +7,7 @@ import 'package:flutter_application_1/components/Home/HmHot.dart';
 import 'package:flutter_application_1/components/Home/HmMoreList.dart';
 import 'package:flutter_application_1/components/Home/HmSlider.dart';
 import 'package:flutter_application_1/components/Home/HmSuggestion.dart';
-import 'package:flutter_application_1/viewmodels/home.dart';
+import 'package:flutter_application_1/viewmodels/Home.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key? key}) : super(key: key);
@@ -17,6 +17,9 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  //分类列表
+  List<CategoryItem> _categoryList = [];
+
   // 轮播图分类列表
   // List<CategoryItem> _categoryList = [];
   List<BannerItem> _bannerList = [
@@ -45,7 +48,9 @@ class _HomeViewState extends State<HomeView> {
       // 放置分类组件
       SliverToBoxAdapter(child: SizedBox(height: 10)), //上下间距
 
-      SliverToBoxAdapter(child: Hmcategory()), //分类页面组件
+      SliverToBoxAdapter(
+        child: Hmcategory(categoryList: _categoryList),
+      ), //分类页面组件
 
       SliverToBoxAdapter(child: SizedBox(height: 10)), //上下间距
 
@@ -76,7 +81,14 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    _getBannderList();
+    _getBannderList(); // 获取轮播图列表，
+    _getCategoryList(); // 获取分类列表，
+  }
+
+  // 获取分类列表，注意final修饰词
+  void _getCategoryList() async {
+    _categoryList = await getCategoryListAPI();
+    setState(() {});
   }
 
   // 获取轮播图列表，注意final修饰词
